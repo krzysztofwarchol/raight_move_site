@@ -4,6 +4,8 @@ body {
     padding: 0;
     background-color: #f5f5f5;
     color: #333;
+    display: grid;
+    place-items: center;
 }
 
 header {
@@ -21,19 +23,14 @@ section {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* p {
-    font-size: 1vw;
-} */
-
 
 h1 {
     color: #000000;
-    /* font-size: 3.2rem;
-    margin: 1,3%; */
 }
 
 h2 {
     color: #000000;
+    text-align: left;
 }
 
 h3 {
@@ -81,7 +78,7 @@ footer {
     display: block;
     padding: 2%;
     margin: 0 auto;
-    width: 80%; /* Scale to 1/5 of the original size */
+    width: 80%; 
     max-width: 100%;
 }
 
@@ -94,10 +91,6 @@ footer {
     padding: 1.5%;
 }
 
-/* .title-2 {
-    font-size: 160%; 
-    padding: 0.5%;
-} */
 
 .red {
     color: red;
@@ -106,13 +99,31 @@ footer {
 .side-by-side {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Space between the images */
+    gap: 20px; 
 }
 
-/* Dla urządzeń mobilnych */
+.download-section {
+    text-align: center;
+}
+
+
+.download-button {
+    display: block;
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 4.0vw;
+    color: #000000;
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: #000000;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
 @media (max-width: 767px) {
     p {
-        font-size: 3vw; /* Skalowanie czcionki na telefonie */
+        font-size: 3vw;
         text-align: justify;
     }
     ul, ol {
@@ -144,10 +155,9 @@ footer {
     }
 }
 
-/* Dla tabletów o większych urządzeń */
 @media (min-width: 768px) and (max-width: 1023px) {
     p {
-        font-size: 2vw; /* Skalowanie czcionki na tabletach */
+        font-size: 2vw;
         text-align: justify;
     }
 
@@ -178,12 +188,25 @@ footer {
     h3 {
         font-size: 2.5vw; 
     }
+
+    .download-button {
+        display: block;
+        margin: 10px;
+        padding: 10px 20px;
+        font-size: 2.5vw;
+        color: #000000;
+        background-color: #ffffff;
+        border: 1px solid;
+        border-color: #000000;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
 }
 
-/* Dla komputerów */
 @media (min-width: 1024px) {
     p {
-        font-size: 1.2vw; /* Skalowanie czcionki na komputerach */
+        font-size: 1.2vw;
         text-align: justify;
     }
 
@@ -214,4 +237,36 @@ footer {
     h3 {
         font-size: 1.3vw; 
     }
+
+    .download-button {
+        display: block;
+        margin: 10px;
+        padding: 10px 20px;
+        font-size: 1.5vw;
+        color: #000000;
+        background-color: #ffffff;
+        border: 1px solid;
+        border-color: #000000;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+
+    .centered-img {
+        display: block;
+        padding: 2%;
+        margin: 0 auto;
+        width: 60%;
+        max-width: 100%;
+    }
+
+    section {
+        padding: 20px;
+        margin: 20px;
+        width: 70%;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
 }

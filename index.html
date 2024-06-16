@@ -38,7 +38,7 @@
     <section>
         <h2>Cel projektu</h2>
         <p style="padding-top: 1.5%;">Celem projektu było opracowanie aplikacji, która w łatwy i przystępny sposób umożliwi użytkownikom ocenę poprawności wykonywanych ćwiczeń fizycznych.</p>
-        <img src="images/pic2.png" class="centered-img" style="padding-top: 3%;">
+        <img src="images/gif1.gif" class="centered-img" style="padding-top: 3%;">
     </section>
     <section>
         <h2>Potok przetwarzania</h2>
@@ -46,56 +46,17 @@
         <img src="images/pic3.png" class="centered-img" style="padding-top: 3.8%;">
     </section>
     <section>
-        <h2>Wybór ćwiczenia</h2>
-        <ul>
-            <li>Przysiad (ang. squat)</li>
-            <li>Wykroki (ang. lunges)</li>
-            <li>Deska (ang. plank)</li>
-        </ul>
-        <p>Liczba zdefiniowanych błędów:</p>
-        <ul>
-            <li>Przysiad: 4</li>
-            <li>Wykroki: 2</li>
-            <li>Deska: 2</li>
-        </ul>
-    </section>
-    <section>
-        <h2>Estymacja pozycji</h2>
-        <p>Estymacja 3D</p>
-        <p>Źródło: Liubov Zatolokina, Using Human Pose Estimation in Fitness & Rehab Therapy Apps</p>
-        <p>Estymacja 2D</p>
-        <p>Źródło: Google AI Edge, Pose landmark detection guide</p>
-    </section>
-    <section>
-        <h2>Obliczanie kątów</h2>
-        <p>Oś Y</p>
-        <p>Oś X</p>
-        <p>Oś Z</p>
-        <p>Płaszczyzna XY</p>
-        <p>Płaszczyzna XZ</p>
-        <p>Płaszczyzna YZ</p>
-    </section>
-    <section>
-        <h2>Segmentacja powtórzeń</h2>
-        <p>Podział na powtórzenia</p>
-        <p>Przebieg ćwiczenia</p>
-    </section>
-    <section>
-        <h2>Porównanie segmentów</h2>
-        <p>Prawe kolano - kąt w płaszczyźnie XY</p>
-        <p>Lewe biodro - kąt w płaszczyźnie XZ</p>
-    </section>
-    <section>
-        <h2>Dynamic time warping (DTW)</h2>
-        <p>Połączenie dwóch serii czasowych</p>
-        <p>Bazowa seria czasowa</p>
-        <p>Badana seria czasowa</p>
-    </section>
-    <section>
-        <h2>Zwracanie błędów</h2>
-        <p>Prawe kolano - kąt w płaszczyźnie XY</p>
-        <p>Lewe biodro - kąt w płaszczyźnie XZ</p>
-        <p>Próg błędu</p>
+        <h2>Metodyka</h2>
+        <p style="padding-top: 1.5%;">Podział na powtórzenia wykorzystuje wcześniej obliczone kąty pomiędzy najważniejszymi stawami. Każde ćwiczenie ma zdefiniowany zestaw kątów, których średnia wyznacza sygnał ćwiczenia, np. dla przysiadu będą to kąty lewego i prawego kolana z perspektywy bocznej (płaszczyzna XZ).</p>
+        <img src="images/pic7.png" class="centered-img" style="padding-top: 3.8%;">
+        <p style="padding-top: 1.5%;">Taki sygnał posiada powtarzającą się strukturę, z której wyznaczane są wierzchołki, wymagane do określenia początku i  końca każdego powtórzenia.</p>
+        <img src="images/pic8.png" class="centered-img" style="padding-top: 3.8%;">
+        <p style="padding-top: 1.5%;">Aby ocenić jakość wykonanego powtórzenia, wykorzystaliśmy przebieg referencyjny, czyli idealnie wykonane powtórzenie. Każde ćwiczenie posiada zdefiniowane kąty, w których zachodzi największa wariancja. Przebieg zmiany dla tych kątów definiuje jakość wykonanego powtórzenia.</p>
+        <img src="images/pic9.png" class="centered-img" style="padding-top: 3.8%;">
+        <p style="padding-top: 1.5%;">Jeśli różnica w kącie, który definiuje błąd, pomiędzy referencją a danym powtórzeniem, będzie większa niż wyznaczony próg, zostanie zwrócony błąd.</p>
+        <img src="images/pic10.png" class="centered-img" style="padding-top: 3.8%;">
+        <p style="padding-top: 1.5%;">Porównywanie dwóch segmentów bazuje na algorytmie Dynamic Time Warping (DTW). Algorytm ten umożliwia dopasowanie indeksów dwóch serii czasowych, dzięki czemu mogą być porównywane jedynie wartości odpowiadające tym samym fazom ćwiczenia. Dzięki temu podejściu uzyskujemy informacje o różnicach w przebiegach pomiędzy seriami oraz o czasie, w którym te różnice wystąpiły.</p>
+        <img src="images/pic11.png" class="centered-img" style="padding-top: 3.8%;">
     </section>
     <section>
         <h2>Zbiory danych</h2>
@@ -107,90 +68,29 @@
     </section>
     <section>
         <h2>Zbiór RMD</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Ćwiczenie</th>
-                    <th>Etykieta</th>
-                    <th>Liczba powtórzeń</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Przysiad</td>
-                    <td>poprawne</td>
-                    <td>20</td>
-                </tr>
-                <tr>
-                    <td>Wykroki</td>
-                    <td>poprawne</td>
-                    <td>16</td>
-                </tr>
-                <tr>
-                    <td>Deska</td>
-                    <td>poprawne</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>Przysiad</td>
-                    <td>za nisko</td>
-                    <td>15</td>
-                </tr>
-                <tr>
-                    <td>Wykroki</td>
-                    <td>pochylone plecy</td>
-                    <td>15</td>
-                </tr>
-                <tr>
-                    <td>Deska</td>
-                    <td>złe ustawienie kolan</td>
-                    <td>76</td>
-                </tr>
-            </tbody>
-        </table>
+        <img src="images/pic6.png" class="centered-img" style="width: 60%;">
     </section>
     <section>
         <h2>Anotacja powtórzeń - RepLabelApp</h2>
-        <p>Wideo: vid_003.mp4</p>
-        <p>Klatka początkowa: 88</p>
-        <p>Klatka końcowa: 130</p>
+        <p style="padding-top: 1.5%;">W ramach pracy nad przygotowaniem zbioru RMD, powstało proste narzędzie RepLabelApp, które umożliwiło szybką anotację powtórzeń wybranego ćwiczenia.</p>
+        <img src="images/pic12.png" class="centered-img" style="padding-top: 3%;">
     </section>
     <section>
         <h2>Wyniki</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Ćwiczenie</th>
-                    <th>Dokładność [%]</th>
-                    <th>Miara f1 [%]</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Przysiad</td>
-                    <td>73.68</td>
-                    <td>69.29</td>
-                </tr>
-                <tr>
-                    <td>Wykroki</td>
-                    <td>64.44</td>
-                    <td>62.96</td>
-                </tr>
-                <tr>
-                    <td>Deska</td>
-                    <td>77.50</td>
-                    <td>77.33</td>
-                </tr>
-            </tbody>
-        </table>
-        <h3>Test algorytmu segmentacji</h3>
-        <p>Przewidywane etykiety: Poprawne, Za wysoko, Zbyt nisko</p>
-        <h3>Test klasyfikacji błędów</h3>
-        <p>Macierz pomyłek dla ćwiczenia: deska</p>
+        <p style="padding-top: 1.5%;">Przygotowując aplikację, przetestowaliśmy na zbiorze RMD skuteczność naszego algorytmu segmentacji oraz algorytmu wykrywania błędów. Wyniki, które uzyskaliśmy to IoU równe 69,41% dla algorytmu segmentacji oraz dokładność równą 69,90% dla modułu wykrywania błędów. W pierwszym teście najlepsze rezultaty uzyskano na nagraniach zawierających powtórzenia przysiadu, w teście dotyczącym błędów - powtórzenia deski.</p>
+        <img src="images/pic5.png" class="centered-img" style="padding-top: 3%;">
     </section>
     <section>
-        <h2>Aplikacja - rAIght.move</h2>
-        <p>Szczegóły dotyczące aplikacji rAIght.move...</p>
+        <h2>Aplikacja - r<span class="red">AI</span>ght.move</h2>
+        <img src="images/pic2.png" class="centered-img" style="padding-top: 3%;">
+        <img src="images/gif2.gif" class="centered-img" style="padding-top: 3%;">
+        <img src="images/gif3.gif" class="centered-img" style="padding-top: 3%;">
+    </section>
+    <section class="download-section">
+        <h2 style="padding-bottom: 1.5%;">Żródła</h2>
+        <a href="" class="download-button" target="_blank"><b>Prezentacja</b></a>
+        <a href="" class="download-button" target="_blank"><b>Plakat</b></a>
+        <a href="https://github.com/hbrt-rdzk/rAIght.move-analysis" target="_blank" class="download-button"><b>Kod źródłowy</b></a>
     </section>
     </body>
 </html>
