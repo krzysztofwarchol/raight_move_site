@@ -8,16 +8,16 @@
 </head>
 <body>
     <header>
-        <h1>r<span class="red">AI</span>ght.move</h1>
-        <p class="title-2">Lepsza technika, mniej kontuzji, większe mięśnie, czyli Twój asystent treningowy</p>
-        <p style="padding-top: 2.5%;"><b>Opiekunowie projektu:</b></p>
-        <p>Karol Kunicki</p>
-        <p>Hubert Rudzik</p>
-        <p>Michał Sadłek</p>
-        <p>Krzysztof Warchoł</p>
-        <p style="padding-top: 0.8%;"><b>Opiekunowie projektu:</b></p>
-        <p>mgr inż. Przemysław Dolata</p>
-        <p>dr hab. inż. Maciej</p>
+        <p class="title-1"  style='text-align: center !important;'><b>r<span class="red">AI</span>ght.move</b></p>
+        <p class="title-2" style='text-align: center !important;'>Lepsza technika, mniej kontuzji, większe mięśnie, czyli Twój asystent treningowy</p >
+        <p style="padding-top: 2.5%; text-align: center !important;"><b>Zespół:</b></p>
+        <p style='text-align: center !important;'>Karol Kunicki</p>
+        <p style='text-align: center !important;'>Hubert Rudzik</p>
+        <p style='text-align: center !important;'>Michał Sadłek</p>
+        <p style='text-align: center !important;'>Krzysztof Warchoł</p>
+        <p style="padding-top: 0.8%; text-align: center !important;"><b>Opiekunowie projektu:</b></p>
+        <p style='text-align: center !important;'>mgr inż. Przemysław Dolata</p>
+        <p style='text-align: center !important;'>dr hab. inż. Maciej Zięba</p>
     </header>
     <section>
         <h2>Motywacja</h2>
@@ -37,12 +37,13 @@
     </section>
     <section>
         <h2>Cel projektu</h2>
-        <p style="padding-top: 1%;">Celem projektu było opracowanie aplikacji, która w łatwy i przystępny sposób umożliwi użytkownikom ocenę poprawności wykonywanych ćwiczeń fizycznych.</p>
+        <p style="padding-top: 1.5%;">Celem projektu było opracowanie aplikacji, która w łatwy i przystępny sposób umożliwi użytkownikom ocenę poprawności wykonywanych ćwiczeń fizycznych.</p>
         <img src="images/pic2.png" class="centered-img" style="padding-top: 3%;">
     </section>
     <section>
         <h2>Potok przetwarzania</h2>
-        <p style="padding-top: 0.8%;">Potok przetwarzania zakłada jako wejście nagranie wideo zawierające kilka powtórzeń wybranego ćwiczenia, z którego uzyskiwana jest reprezentacja szkieletu. Następnie, na podstawie tej reprezentacji, dokonywana jest segmentacja na poszczególne powtórzenia, tak aby każdy segment mógł być analizowany osobno. Jeśli któreś z powtórzeń odbiega od wyznaczonej referencji, zwrócona zostanie informacja o wystąpieniu błędu.</p>
+        <p style="padding-top: 1.5%;">Potok przetwarzania zakłada jako wejście nagranie wideo zawierające kilka powtórzeń wybranego ćwiczenia, z którego uzyskiwana jest reprezentacja szkieletu. Następnie, na podstawie tej reprezentacji, dokonywana jest segmentacja na poszczególne powtórzenia, tak aby każdy segment mógł być analizowany osobno. Jeśli któreś z powtórzeń odbiega od wyznaczonej referencji, zwrócona zostanie informacja o wystąpieniu błędu.</p>
+        <img src="images/pic3.png" class="centered-img" style="padding-top: 3.8%;">
     </section>
     <section>
         <h2>Wybór ćwiczenia</h2>
@@ -98,15 +99,11 @@
     </section>
     <section>
         <h2>Zbiory danych</h2>
-        <ul>
-            <li>EC3D (ang. Exercise Correction in 3D)</li>
-            <li>RMD (ang. raight.move Dataset)</li>
-            <li>Własny zbiór</li>
+        <ul style="padding-top: 1.5%;">
+            <li><b>Exercise Corection in 3D (EC3D)</b>, zbiór zawierający pozy 3D osób wykonujących ćwiczenia.</li>
+            <li><b>r<span class="red">AI</span>gt.move dataset (RMD)</b>, zbiór przygotowany przez nasz zespół składający się z nagrań wideo zawierających ćwiczenia z określoną liczbą powtórzeń. Wzorowany na EC3D (rodzaje ćwiczeń oraz etykiety błędów). Powstanie naszego zestawu danych umożliwiło przetestowanie algorytmu segmentacji powtórzeń oraz przeprowadzenie testu zwracanych błędów przez aplikację.</li>
         </ul>
-        <p>Zbiór nagrań wideo sekwencji ćwiczeń</p>
-        <p>Zbiór sekwencji punktów kluczowych 3D</p>
-        <p>Przysiad / Wykroki / Deska</p>
-        <p>Liczba powtórzeń: 265362</p>
+        <img src="images/pic4.png" style="padding-top: 3.8%; width: 80%;">
     </section>
     <section>
         <h2>Zbiór RMD</h2>
