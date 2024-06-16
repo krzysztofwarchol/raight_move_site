@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rAIght.move</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>r<span class="red">AI</span>ght.move</h1>
+        <p class="title-2">Lepsza technika, mniej kontuzji, większe mięśnie, czyli Twój asystent treningowy</p>
+        <p style="padding-top: 2.5%;"><b>Opiekunowie projektu:</b></p>
+        <p>Karol Kunicki</p>
+        <p>Hubert Rudzik</p>
+        <p>Michał Sadłek</p>
+        <p>Krzysztof Warchoł</p>
+        <p style="padding-top: 0.8%;"><b>Opiekunowie projektu:</b></p>
+        <p>mgr inż. Przemysław Dolata</p>
+        <p>dr hab. inż. Maciej</p>
+    </header>
+    <section>
+        <h2>Motywacja</h2>
+        <h3>Empatyzja - najważniejsze wnioski:</h3>
+        <ul>
+            <li>Coraz gorsza fizyczność ludzi</li>
+            <li>Coraz większa świadomość ludzi na temat potrzeby poprawnej techniki ćwiczeń
+                (amatorzy, zawodowcy)</li>
+            <li>Ludzie mogą nauczyć się poprawnej techniki przy pomocy trenera, filmików,
+                książek</li>
+            <li>Nie za każdym treningiem można sobie pozwolić na trenera (pieniądze, czas)</li>
+            <li>Aby sprawdzić własną technikę trzeba mieć wiedzę</li>
+            <li>Sędziowie na zawodach mają często mało czasu na ocenienie poprawności
+                techniki (gimnastyka, aerobik sportowy, taniec)</li>
+        </ul>
+        <img src="images/pic1.png" class="centered-img">
+    </section>
+    <section>
+        <h2>Cel projektu</h2>
+        <p style="padding-top: 1%;">Celem projektu było opracowanie aplikacji, która w łatwy i przystępny sposób umożliwi użytkownikom ocenę poprawności wykonywanych ćwiczeń fizycznych.</p>
+        <img src="images/pic2.png" class="centered-img" style="padding-top: 3%;">
+    </section>
+    <section>
+        <h2>Potok przetwarzania</h2>
+        <p style="padding-top: 0.8%;">Potok przetwarzania zakłada jako wejście nagranie wideo zawierające kilka powtórzeń wybranego ćwiczenia, z którego uzyskiwana jest reprezentacja szkieletu. Następnie, na podstawie tej reprezentacji, dokonywana jest segmentacja na poszczególne powtórzenia, tak aby każdy segment mógł być analizowany osobno. Jeśli któreś z powtórzeń odbiega od wyznaczonej referencji, zwrócona zostanie informacja o wystąpieniu błędu.</p>
+    </section>
+    <section>
+        <h2>Wybór ćwiczenia</h2>
+        <ul>
+            <li>Przysiad (ang. squat)</li>
+            <li>Wykroki (ang. lunges)</li>
+            <li>Deska (ang. plank)</li>
+        </ul>
+        <p>Liczba zdefiniowanych błędów:</p>
+        <ul>
+            <li>Przysiad: 4</li>
+            <li>Wykroki: 2</li>
+            <li>Deska: 2</li>
+        </ul>
+    </section>
+    <section>
+        <h2>Estymacja pozycji</h2>
+        <p>Estymacja 3D</p>
+        <p>Źródło: Liubov Zatolokina, Using Human Pose Estimation in Fitness & Rehab Therapy Apps</p>
+        <p>Estymacja 2D</p>
+        <p>Źródło: Google AI Edge, Pose landmark detection guide</p>
+    </section>
+    <section>
+        <h2>Obliczanie kątów</h2>
+        <p>Oś Y</p>
+        <p>Oś X</p>
+        <p>Oś Z</p>
+        <p>Płaszczyzna XY</p>
+        <p>Płaszczyzna XZ</p>
+        <p>Płaszczyzna YZ</p>
+    </section>
+    <section>
+        <h2>Segmentacja powtórzeń</h2>
+        <p>Podział na powtórzenia</p>
+        <p>Przebieg ćwiczenia</p>
+    </section>
+    <section>
+        <h2>Porównanie segmentów</h2>
+        <p>Prawe kolano - kąt w płaszczyźnie XY</p>
+        <p>Lewe biodro - kąt w płaszczyźnie XZ</p>
+    </section>
+    <section>
+        <h2>Dynamic time warping (DTW)</h2>
+        <p>Połączenie dwóch serii czasowych</p>
+        <p>Bazowa seria czasowa</p>
+        <p>Badana seria czasowa</p>
+    </section>
+    <section>
+        <h2>Zwracanie błędów</h2>
+        <p>Prawe kolano - kąt w płaszczyźnie XY</p>
+        <p>Lewe biodro - kąt w płaszczyźnie XZ</p>
+        <p>Próg błędu</p>
+    </section>
+    <section>
+        <h2>Zbiory danych</h2>
+        <ul>
+            <li>EC3D (ang. Exercise Correction in 3D)</li>
+            <li>RMD (ang. raight.move Dataset)</li>
+            <li>Własny zbiór</li>
+        </ul>
+        <p>Zbiór nagrań wideo sekwencji ćwiczeń</p>
+        <p>Zbiór sekwencji punktów kluczowych 3D</p>
+        <p>Przysiad / Wykroki / Deska</p>
+        <p>Liczba powtórzeń: 265362</p>
+    </section>
+    <section>
+        <h2>Zbiór RMD</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ćwiczenie</th>
+                    <th>Etykieta</th>
+                    <th>Liczba powtórzeń</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Przysiad</td>
+                    <td>poprawne</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>Wykroki</td>
+                    <td>poprawne</td>
+                    <td>16</td>
+                </tr>
+                <tr>
+                    <td>Deska</td>
+                    <td>poprawne</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>Przysiad</td>
+                    <td>za nisko</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>Wykroki</td>
+                    <td>pochylone plecy</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>Deska</td>
+                    <td>złe ustawienie kolan</td>
+                    <td>76</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section>
+        <h2>Anotacja powtórzeń - RepLabelApp</h2>
+        <p>Wideo: vid_003.mp4</p>
+        <p>Klatka początkowa: 88</p>
+        <p>Klatka końcowa: 130</p>
+    </section>
+    <section>
+        <h2>Wyniki</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ćwiczenie</th>
+                    <th>Dokładność [%]</th>
+                    <th>Miara f1 [%]</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Przysiad</td>
+                    <td>73.68</td>
+                    <td>69.29</td>
+                </tr>
+                <tr>
+                    <td>Wykroki</td>
+                    <td>64.44</td>
+                    <td>62.96</td>
+                </tr>
+                <tr>
+                    <td>Deska</td>
+                    <td>77.50</td>
+                    <td>77.33</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Test algorytmu segmentacji</h3>
+        <p>Przewidywane etykiety: Poprawne, Za wysoko, Zbyt nisko</p>
+        <h3>Test klasyfikacji błędów</h3>
+        <p>Macierz pomyłek dla ćwiczenia: deska</p>
+    </section>
+    <section>
+        <h2>Aplikacja - rAIght.move</h2>
+        <p>Szczegóły dotyczące aplikacji rAIght.move...</p>
+    </section>
+    </body>
+</html>
